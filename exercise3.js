@@ -1,50 +1,31 @@
-function returnDuplicates(list) {
-    var countDict = {};
-    for (var index = 0; index < list.length; index++) {
-        var potentialKey = list[index];
-        var type = typeof potentialKey;
-        var len = potentialKey.toString().length;
-        if (countDict[potentialKey]) {
-            for (var key in countDict) {
-                var keyLen = key.toString().length;
-                // console.log("type of key: " +typeof key);
-                // console.log("type of potential key: " + type);
-                // console.log("length of key: " + keyLen);
-                // console.log("length of potential key: " + len);
-                if (typeof key == type  && len == keyLen ) {
-                    countDict[potentialKey] +=1;
+function dupeList(list) {
+    newList = [];
+    for (var i = 0; i < list.length; i++) {
+        // console.log("this is i at the OUTER for loop: " + i);
+        // console.log("this is the list item at the OUTER for loop: " + list[i]);
+        for (var x = i+1; x < list.length; x++) {
+            // console.log('this is x in the INNER for loop: ' + x);
+            // console.log('this is the comparison item in the INNER for loop: ' + list[x]);
+            if (list[i] === list[x]) {
+                // console.log("print something");
+                if (newList.indexOf(list[i]) < 0) {
+                    newList.push(list[i]);
+                    // console.log(newList);
                 }
-               else {
-                countDict[potentialKey] = 1;
-               }
             }
         }
-        else {
-            countDict[potentialKey] = 1;
-        }
     }
-
-    console.log(countDict);
-    
-    var dupList = [];
-    for (var k in countDict) {
-        if (countDict[k] > 1) {
-            dupList.push(k);
-        }
-    }
-    return dupList;
+    return newList;
 }
+
 
 var votesToGoEatCake = [true, true, true, true];
 var hackbrightStudents = ["katie", "amy", "jenny", "katie", "kelley", "katie", "amy"];
-var classroomIds = [47, 12, 19, 22, 26, 99, 30, 50, 324, 003, 44, 33, 346, 354, 44, 235, 45, 34, 44, 590, 09, 099, 0, 1, 3, 33, 999, 9];
 var randomJunkIFound = ["katie", "true",  true, 19, "gargoyles", "!", 2 + 3, "2 + 3", 19, "19", 19 === "19", 6, false, false];
-// TODO try with 5 (vs. 2+3)
 
-console.log(returnDuplicates(votesToGoEatCake));
-//console.log(returnDuplicates(hackbrightStudents));
-//console.log(returnDuplicates(classroomIds));
-//console.log(returnDuplicates(randomJunkIFound));
+// var classroomIds = [47, 12, 19, 22, 26, 99, 30, 50, 324, 003, 44, 33, 346, 354, 44, 235, 45, 34, 44, 590, 09, 099, 0, 1, 3, 33, 999, 9];
+// returns: [99, 3, 44, 33, 9 ]
+// should be: [44, 33 ]
 
-// dict.key returns value only, didn't work above in if stmt because not set yet
-// dict[key] can set value
+
+console.log(dupeList(votesToGoEatCake));
