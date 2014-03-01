@@ -11,7 +11,7 @@ var Book = function(title, genre, author, read, readDate) {
         this.readDate = readDate || Date();
     }
     else {
-        this.readDate = null}
+        this.readDate = null;}
 };
 
 var book1 = new Book('Harry Potter','children','JK Rowling','read');
@@ -31,22 +31,22 @@ console.log(bookShelf);
 
 var BookList = function(bookList) {
     this.bookShelf = bookList || [];
-
-    nextBook: function(bookShelf){
-        this.bookShelf = bookShelf;
+    // this.booksRead = booksRead;
+    // this.booksNotRead = booksNotRead;
+    this.nextBook = function(){
         for (var i = 0; i < bookShelf.length; i++) {
             var book = bookShelf[i];
             if (book.read !== 'read'){
-                console.log(book);
+                return book;
             }
         }
-    }
+    };
 };
 
 
 // BookList(bookList);
 // console.log(BookList.bookShelf);
-var booklist = new BookList(1, 4, bookShelf);
-console.log(booklist);
+var booklist = new BookList(bookShelf);
+console.log(booklist.nextBook());
 
 // bookList.nextBook(bookList.bookShelf);
