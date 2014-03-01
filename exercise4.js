@@ -1,20 +1,20 @@
 var cat = {
         energy: 10,
-        food: 20, 
+        food: 20,
         social: 3,
-        happiness: 15, 
+        happiness: 15,
         // Adds random number of points to energy up to num minutes of sleep; can also put negatives in
         nap: function(num){
-            random = Math.random();
+            var random = Math.random();
             this.energy += Math.floor(random * (num+1));
             // console.log(random);
             // console.log(this.energy);
         },
-        // Adds up from 10 to 50 max points if feed cat yummyFood, otherwise add 5
+        // Adds up from 10 to 50 max points if feed cat yummyFood list, otherwise add 5
         feed: function(food){
-            yummyFood = ['chicken','fish','beef']
+            var yummyFood = ['chicken','fish','beef'];
             if (yummyFood.indexOf(food) > -1) {
-                this.food += Math.floor(Math.random() * (51 - 10) + 10)
+                this.food += Math.floor(Math.random() * (51 - 10) + 10);
             }
             else {
                 this.food += 5;
@@ -22,13 +22,13 @@ var cat = {
         },
         // Makes the cat moody, sometimes does not want to be pet 
         cuddle: function(){
-            random = Math.floor(Math.random() * 2)
+            var random = Math.floor(Math.random() * 2);
             if (random === 1) {
                 console.log("prrrr");
                 this.social += 20;
             } else {
-                console.log("ouch, you got scratched by a moody kitty!")
-                this.social -= 15
+                console.log("ouch, you got scratched by a moody kitty!");
+                this.social -= 15;
             }
         },
         play: function(){
@@ -37,7 +37,7 @@ var cat = {
         },
         // Prints all the properties of cat, does not print functions
         printall: function(){
-            for (property in cat) {
+            for (var property in cat) {
                 if (typeof this[property] !== 'function') {
                     console.log(property + ': ' + this[property]);
                 }
@@ -52,7 +52,7 @@ var cat = {
                 this.happiness += 20;
                 this.energy +=10;
             } else {
-                console.log('Invalid input. Input \'pet\' or \'laser\' only')
+                console.log('Invalid input. Input \'pet\' or \'laser\' only');
             }
         }
 };
