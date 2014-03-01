@@ -1,5 +1,5 @@
-// TODO What does the Ex 5 paragraph starting with "This is where 'this'" mean? 
-// TODO Why does this print "object Object"? object (dict) of type Object
+// NOTE What does the Ex 5 paragraph starting with "This is where 'this'" mean? 
+// NOTE Why does this print "object Object"? object (dict) of type Object
 
 var StarShip = function(designation, registryNumber, crewComplement){
     this.designation = designation || "Unknown Designation";
