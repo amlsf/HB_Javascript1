@@ -26,12 +26,24 @@ var bookShelf = [book1, book2, book3, book4, book5];
 var bookExtra = new Book('Classical Music','music','Wolfgang Mozart');
 
 
-// console.log(bookShelf);
-
 var BookList = function(bookList) {
-    this.bookShelf = bookList || [];  
-    // Marks book as "current" property 
+    this.bookShelf = bookList || [];
 
+    var readCounter = 0
+    for (var i = 0; i < bookShelf.length; i++) {
+            if (bookShelf[i].read) {
+                readCounter += 1;
+            } 
+        } this.booksRead = readCounter;
+
+    var unreadCounter = 0
+    for (var i = 0; i < bookShelf.length; i++) {
+            if (bookShelf[i].read === false) {
+                unreadCounter += 1;
+            } 
+        } this.booksUnread = unreadCounter;
+
+    // Marks book as "current" property 
     this.markCurrent = function(booktitle){
     // Checks to make sure no other book in list already marked as current
         for (var i = 0; i < bookShelf.length; i++) {
@@ -39,6 +51,7 @@ var BookList = function(bookList) {
                 return ("Already marked " + bookShelf[i].title + " as next in queue");
             } 
         }
+
     // Checks to make sure title exists
         var titleExists = false;
         for (var i = 0; i < bookShelf.length; i++) {
@@ -184,6 +197,9 @@ var BookList = function(bookList) {
 
 var booklist = new BookList(bookShelf);
 
+console.log(booklist.booksRead);
+console.log(booklist.booksUnread);
+// console.log(booklist.booksUnread);
 
 // Test markNext and markCurrent functions
 // console.log(booklist.bookShelf);
