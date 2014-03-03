@@ -12,7 +12,7 @@ var Book = function(title, genre, author, read, readDate) {
     }
     else {
         this.readDate = null;
-    };
+    }
 };
 
 var book1 = new Book('Harry Potter','children','JK Rowling',true,new Date("2013/03/13"));
@@ -29,18 +29,18 @@ var bookExtra = new Book('Classical Music','music','Wolfgang Mozart');
 var BookList = function(bookList) {
     this.bookShelf = bookList || [];
 
-    var readCounter = 0
+    var readCounter = 0;
     for (var i = 0; i < bookShelf.length; i++) {
             if (bookShelf[i].read) {
                 readCounter += 1;
-            } 
+            }
         } this.booksRead = readCounter;
 
-    var unreadCounter = 0
+    var unreadCounter = 0;
     for (var i = 0; i < bookShelf.length; i++) {
             if (bookShelf[i].read === false) {
                 unreadCounter += 1;
-            } 
+            }
         } this.booksUnread = unreadCounter;
 
     // Marks book as "current" property 
@@ -49,7 +49,7 @@ var BookList = function(bookList) {
         for (var i = 0; i < bookShelf.length; i++) {
             if (bookShelf[i].current) {
                 return ("Already marked " + bookShelf[i].title + " as next in queue");
-            } 
+            }
         }
 
     // Checks to make sure title exists
@@ -57,7 +57,7 @@ var BookList = function(bookList) {
         for (var i = 0; i < bookShelf.length; i++) {
             if (bookShelf[i].title === booktitle) {
                 titleExists = true;
-            } 
+            }
         }
         if (titleExists === false) {
             return ("That title does not exist in the booklist!");
@@ -75,7 +75,7 @@ var BookList = function(bookList) {
                 } else {
                     bookShelf[i].current = true;
                     return (bookShelf[i].title + " successfully marked as currently reading!");
-                } 
+                }
             }
         }
     };
@@ -87,14 +87,14 @@ var BookList = function(bookList) {
         for (var i = 0; i < bookShelf.length; i++) {
             if (bookShelf[i].next) {
                 return ("Already marked " + bookShelf[i].title + " as next in queue");
-            } 
+            }
         }
     // Checks to make sure title exists
         var titleExists = false;
         for (var i = 0; i < bookShelf.length; i++) {
             if (bookShelf[i].title === booktitle) {
                 titleExists = true;
-            } 
+            }
         }
         if (titleExists === false) {
             return ("That title does not exist in the booklist!");
@@ -112,7 +112,7 @@ var BookList = function(bookList) {
                 } else {
                     bookShelf[i].next = true;
                     return (bookShelf[i].title + " successfully marked as next in queue!");
-                } 
+                }
             }
         }
     };
@@ -184,11 +184,11 @@ var BookList = function(bookList) {
                 unreadList.push(bookShelf[i]);
             }
         }
-        var random = Math.floor(Math.random() * unreadList.length)
+        var random = Math.floor(Math.random() * unreadList.length);
         for (var i = 0; i < bookShelf.length; i ++) {
             if (unreadList[random].title === bookShelf[i].title) {
                 bookShelf[i].next = true;
-                return ("Randomly marked " + bookShelf[i] + " as next in queue.")
+                return ("Randomly marked " + bookShelf[i] + " as next in queue.");
             }
         }
     };
@@ -197,8 +197,8 @@ var BookList = function(bookList) {
 
 var booklist = new BookList(bookShelf);
 
-console.log(booklist.booksRead);
-console.log(booklist.booksUnread);
+// console.log(booklist.bookShelf);
+// console.log(booklist.booksRead);
 // console.log(booklist.booksUnread);
 
 // Test markNext and markCurrent functions
@@ -206,7 +206,12 @@ console.log(booklist.booksUnread);
 // console.log(booklist.markNext('Harry Potter'));
 // console.log(booklist.markNext('Life of Pi'));
 // console.log(booklist.markCurrent('Life of Pi'));
-// console.log(booklist.markNext('Javascript'));
+// console.log(booklist.markCurrent('Twilight'));
+// console.log(booklist.markCurrent('Harry Potter'));
+// console.log(booklist.markCurrent('sdfsf'));
+// console.log(booklist.markCurrent('Influence'));
+// console.log(booklist.bookShelf);
+
 
 // Test call current, next, last book functions
 // console.log(booklist.currentBook());

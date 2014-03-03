@@ -28,4 +28,4 @@ var randomJunkIFound = ["katie", "true",  true, 19, "gargoyles", "!", 2 + 3, "2 
 // should be: [44, 33 ]
 // T: 44, 9, 3 (should have 33, correctly doesn't have 99)
 
-console.log(dupeList(classroomIds));
+console.log(dupeList(hackbrightStudents));
